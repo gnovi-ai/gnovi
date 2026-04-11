@@ -1,0 +1,15 @@
+[project]
+name = "poc-01-falkordb-graphiti"
+version = "0.1.0"
+description = "POC: FalkorDB + Graphiti bi-temporal integration"
+requires-python = ">=3.13"
+dependencies = [
+    "gnovi-core",
+]
+
+[tool.uv.sources]
+gnovi-core = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
