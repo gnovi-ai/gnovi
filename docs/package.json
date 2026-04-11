@@ -1,0 +1,22 @@
+{
+  "name": "@gnovi/docs",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "dev": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3",
+    "@docusaurus/preset-classic": "^3",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@docusaurus/types": "^3",
+    "typescript": "^5"
+  }
+}

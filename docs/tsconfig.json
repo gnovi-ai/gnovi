@@ -1,0 +1,8 @@
+{
+  "extends": "@gnovi/tsconfig/base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "noEmit": true
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
+}
