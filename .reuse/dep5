@@ -1,0 +1,11 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Gnovi
+Upstream-Contact: https://github.com/gnovi-ai/gnovi
+
+Files: *.json *.yaml *.yml *.toml *.lock .gitkeep .node-version py.typed
+Copyright: 2026 Gnovi Contributors
+License: AGPL-3.0-only
+
+Files: .gitignore .dockerignore .prettierrc .envrc .env*
+Copyright: 2026 Gnovi Contributors
+License: AGPL-3.0-only
