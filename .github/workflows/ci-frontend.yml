@@ -1,0 +1,51 @@
+name: CI - Frontend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/web/**"
+      - "packages/**"
+      - "docs/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
+  pull_request:
+    paths:
+      - "apps/web/**"
+      - "packages/**"
+      - "docs/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "turbo.json"
+
+jobs:
+  ci-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".node-version"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm turbo lint
+
+      - name: Type check
+        run: pnpm turbo typecheck
+
+      - name: Test
+        run: pnpm turbo test
+
+      - name: Build
+        run: pnpm turbo build
