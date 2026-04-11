@@ -21,7 +21,7 @@ jobs:
         run: uv python install 3.13
 
       - name: Python dependency audit
-        run: uv sync && uv pip audit
+        run: uv sync && uv run pip-audit
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4

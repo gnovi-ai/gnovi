@@ -21,6 +21,7 @@ dev = [
     "pytest-asyncio>=0.25",
     "hypothesis>=6",
     "pre-commit>=4",
+    "pip-audit>=2",
 ]
 
 [tool.ruff]
