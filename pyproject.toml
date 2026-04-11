@@ -50,6 +50,12 @@ pythonVersion = "3.13"
 typeCheckingMode = "strict"
 venvPath = "."
 venv = ".venv"
+extraPaths = [
+    "libs/core/src",
+    "libs/db/src",
+    "apps/api/src",
+    "apps/worker/src",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["apps/*/tests", "libs/*/tests", "experiments/*/tests"]
