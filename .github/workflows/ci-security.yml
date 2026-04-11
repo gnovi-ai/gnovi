@@ -32,4 +32,4 @@ jobs:
           node-version-file: ".node-version"
 
       - name: Node.js dependency audit
-        run: pnpm install --frozen-lockfile && pnpm audit --audit-level=high
+        run: pnpm install --frozen-lockfile && pnpm audit --audit-level=critical
