@@ -1,0 +1,70 @@
+[project]
+name = "gnovi-workspace"
+version = "0.0.0"
+description = "Gnovi monorepo workspace root"
+requires-python = ">=3.13"
+
+[tool.uv.workspace]
+members = [
+    "apps/api",
+    "apps/worker",
+    "libs/*",
+    "experiments/*",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15",
+    "pyright>=1.1.400",
+    "pytest>=8",
+    "pytest-cov>=6",
+    "pytest-asyncio>=0.25",
+    "hypothesis>=6",
+    "pre-commit>=4",
+    "pip-audit>=2",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["apps/*/src", "libs/*/src", "experiments/*/src"]
+
+[tool.ruff.lint]
+select = [
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "F",     # pyflakes
+    "I",     # isort
+    "N",     # pep8-naming
+    "UP",    # pyupgrade
+    "B",     # flake8-bugbear
+    "SIM",   # flake8-simplify
+    "TCH",   # flake8-type-checking
+    "RUF",   # ruff-specific rules
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["gnovi"]
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
+extraPaths = [
+    "libs/core/src",
+    "libs/db/src",
+    "apps/api/src",
+    "apps/worker/src",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["apps/*/tests", "libs/*/tests", "experiments/*/tests"]
+asyncio_mode = "auto"
+addopts = "--strict-markers -v --import-mode=importlib"
+pythonpath = [
+    "libs/core/src",
+    "libs/db/src",
+    "apps/api/src",
+    "apps/worker/src",
+]

@@ -1,0 +1,94 @@
+# Full stack — everything containerized for end users
+name: gnovi
+
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.2-pg18
+    environment:
+      POSTGRES_USER: gnovi
+      POSTGRES_PASSWORD: gnovi_dev
+      POSTGRES_DB: gnovi
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gnovi"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gnovi
+
+  falkordb:
+    image: falkordb/falkordb:v4.18.0
+    volumes:
+      - falkordb:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gnovi
+
+  redis:
+    image: redis:8-alpine
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - gnovi
+
+  api:
+    build:
+      context: ..
+      dockerfile: apps/api/Dockerfile
+      target: prod
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      falkordb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - gnovi
+
+  worker:
+    build:
+      context: ..
+      dockerfile: apps/worker/Dockerfile
+      target: prod
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - gnovi
+
+  web:
+    build:
+      context: ..
+      dockerfile: apps/web/Dockerfile
+      target: prod
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    networks:
+      - gnovi
+
+volumes:
+  pgdata:
+  falkordb:
+  redis:
+
+networks:
+  gnovi:
+    driver: bridge

@@ -1,0 +1,48 @@
+# Development dependencies only — app code runs natively on host
+name: gnovi-dev
+
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.2-pg18
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: gnovi
+      POSTGRES_PASSWORD: gnovi_dev
+      POSTGRES_DB: gnovi
+    volumes:
+      - pgdata-dev:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gnovi"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  falkordb:
+    image: falkordb/falkordb:v4.18.0
+    ports:
+      - "6379:6379"
+    volumes:
+      - falkordb-dev:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:8-alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-dev:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata-dev:
+  falkordb-dev:
+  redis-dev:
