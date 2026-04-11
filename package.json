@@ -16,5 +16,10 @@
   "devDependencies": {
     "prettier": "^3",
     "turbo": "^2"
+  },
+  "pnpm": {
+    "overrides": {
+      "webpack": "5.97.1"
+    }
   }
 }
