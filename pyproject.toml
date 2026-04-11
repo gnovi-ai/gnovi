@@ -12,8 +12,8 @@ members = [
     "experiments/*",
 ]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "ruff>=0.15",
     "pyright>=1.1.400",
     "pytest>=8",
