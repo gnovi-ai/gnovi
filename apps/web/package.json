@@ -20,7 +20,7 @@
   "devDependencies": {
     "@eslint/js": "^10",
     "@gnovi/tsconfig": "workspace:*",
-    "@types/node": "^22",
+    "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10",
