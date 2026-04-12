@@ -76,8 +76,8 @@ Please use our [issue templates](https://github.com/gnovi-ai/gnovi/issues/new/ch
 
 ## Getting Help
 
-- [GitHub Discussions](https://github.com/gnovi-ai/gnovi/discussions) — questions, ideas, general discussion
-- Discord (coming soon)
+- [Discord](https://discord.gg/DnJZaAk7RX) — real-time chat, quick questions, community support
+- [GitHub Discussions](https://github.com/gnovi-ai/gnovi/discussions) — questions, ideas, feature requests, general discussion
 
 ## License
 
