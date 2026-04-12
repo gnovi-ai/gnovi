@@ -58,13 +58,16 @@ Databases: PostgreSQL 18 + pgvector | FalkorDB | Redis
 
 ## Documentation
 
-- [Getting Started](docs/docs/getting-started/quickstart.md)
-- [Architecture Overview](docs/docs/architecture/overview.md)
+Full documentation is available at **[docs.gnovi.ai](https://docs.gnovi.ai)**.
+
+- [Getting Started](https://docs.gnovi.ai/docs/getting-started/quickstart)
+- [Architecture Overview](https://docs.gnovi.ai/docs/architecture/overview)
+- [Blog](https://docs.gnovi.ai/blog)
 
 ## Community
 
-- [Discord](#) (coming soon)
-- [GitHub Discussions](https://github.com/gnovi-ai/gnovi/discussions)
+- [Discord](https://discord.gg/DnJZaAk7RX) — real-time chat, support, and community discussion
+- [GitHub Discussions](https://github.com/gnovi-ai/gnovi/discussions) — questions, feature requests, and long-form discussion
 
 ## License
 
