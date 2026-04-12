@@ -19,7 +19,8 @@
   },
   "pnpm": {
     "overrides": {
-      "webpack": "5.97.1"
+      "serialize-javascript": ">=7.0.5",
+      "webpack": "5.104.1"
     }
   }
 }
