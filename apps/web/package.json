@@ -18,17 +18,17 @@
     "react-dom": "^19"
   },
   "devDependencies": {
-    "@eslint/js": "^9",
+    "@eslint/js": "^10",
     "@gnovi/tsconfig": "workspace:*",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10",
-    "eslint": "^9.39.4",
+    "eslint": "^10",
     "postcss": "^8",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "typescript-eslint": "^8.58.1",
-    "vitest": "^3"
+    "typescript": "^6",
+    "typescript-eslint": "^8",
+    "vitest": "^4"
   }
 }

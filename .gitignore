@@ -15,6 +15,7 @@ venv/
 node_modules/
 .next/
 .turbo/
+.docusaurus/
 *.tsbuildinfo
 
 # Docker
@@ -32,6 +33,15 @@ docker-compose.override.yml
 
 # AI tool local state
 .claude/
+.cursor/
+.windsurf/
+.codeium/
+.augment/
+.aider*
+.clinerules/
+.codex/
+.continue/
+.rules
 
 # Testing / Coverage
 .coverage
