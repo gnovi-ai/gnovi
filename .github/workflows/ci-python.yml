@@ -96,4 +96,4 @@ jobs:
 
       - name: REUSE license check
         if: steps.changes.outputs.python == 'true'
-        uses: fsfe/reuse-action@v5
+        uses: fsfe/reuse-action@v6
