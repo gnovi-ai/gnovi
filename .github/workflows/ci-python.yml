@@ -11,13 +11,6 @@ on:
       - "pyproject.toml"
       - "uv.lock"
   pull_request:
-    paths:
-      - "apps/api/**"
-      - "apps/worker/**"
-      - "libs/**"
-      - "experiments/**"
-      - "pyproject.toml"
-      - "uv.lock"
 
 jobs:
   ci-python:
@@ -61,26 +54,46 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            python:
+              - 'apps/api/**'
+              - 'apps/worker/**'
+              - 'libs/**'
+              - 'experiments/**'
+              - 'pyproject.toml'
+              - 'uv.lock'
+
       - name: Install uv
+        if: steps.changes.outputs.python == 'true'
         uses: astral-sh/setup-uv@v5
 
       - name: Set up Python
+        if: steps.changes.outputs.python == 'true'
         run: uv python install 3.13
 
       - name: Install dependencies
+        if: steps.changes.outputs.python == 'true'
         run: uv sync
 
       - name: Lint
+        if: steps.changes.outputs.python == 'true'
         run: uv run ruff check .
 
       - name: Format check
+        if: steps.changes.outputs.python == 'true'
         run: uv run ruff format --check .
 
       - name: Type check
+        if: steps.changes.outputs.python == 'true'
         run: uv run pyright
 
       - name: Test
+        if: steps.changes.outputs.python == 'true'
         run: uv run pytest --cov --cov-report=xml
 
       - name: REUSE license check
+        if: steps.changes.outputs.python == 'true'
         uses: fsfe/reuse-action@v5
