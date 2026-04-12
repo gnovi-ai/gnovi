@@ -37,7 +37,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --package gnovi-worker
 CMD ["uv", "run", "celery", "-A", "gnovi.worker", "worker", "--loglevel=info"]
 
-FROM python:3.13-slim-bookworm AS prod
+FROM python:3.14-slim-bookworm AS prod
 
 RUN groupadd --system app && useradd --system --gid app app
 
