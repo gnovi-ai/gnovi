@@ -34,6 +34,8 @@ updates:
     labels:
       - "dependencies"
     groups:
+      react:
+        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
       minor-and-patch:
         patterns: ["*"]
         update-types: ["minor", "patch"]
