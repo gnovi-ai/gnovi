@@ -9,7 +9,7 @@ a living, self-discovering knowledge graph from workplace tools.
 Retrieval Engine → Agent Orchestration → API Layer → Web UI
 
 Databases: PostgreSQL 18 + pgvector (relational + vector), FalkorDB (knowledge graph),
-Redis 7 (working memory + task queue)
+Redis 8 (working memory + task queue)
 
 ## Directory Structure
 
@@ -62,7 +62,26 @@ Redis 7 (working memory + task queue)
 
 ## Commits
 
-Use conventional commits: feat:, fix:, docs:, refactor:, test:, chore:
+Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+Format: `<type>(<optional scope>): <description>`
+
+Allowed types: feat, fix, docs, refactor, test, chore, ci, perf
+
+- feat: new feature (changelog: "Features")
+- fix: bug fix (changelog: "Bug Fixes")
+- docs: documentation only
+- refactor: code change that neither fixes a bug nor adds a feature
+- test: adding/updating tests
+- chore: maintenance (deps, CI config, etc.)
+- ci: CI/CD changes
+- perf: performance improvement
+
+Scope is optional but encouraged: `feat(api): add graph search endpoint`
+Breaking changes: add `!` after type — `feat!: remove legacy auth` — or add
+`BREAKING CHANGE:` in the commit body.
+
+Commits are validated by a pre-commit hook and CI PR title check.
+Changelog is auto-generated from commits by git-cliff at release time.
 
 ## Key Dependencies (deliberate choices — don't suggest alternatives)
 

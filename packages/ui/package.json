@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@gnovi/tsconfig": "workspace:*",
-    "typescript": "^5"
+    "typescript": "^6"
   },
   "peerDependencies": {
     "react": "^19"

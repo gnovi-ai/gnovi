@@ -62,7 +62,7 @@ build:
 
 # Build Docusaurus docs site
 build-docs:
-    pnpm --filter docs build
+    pnpm --filter @gnovi/docs build
 
 # --- Database ---
 
