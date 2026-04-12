@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           fetch-depth: 0
 
       - name: Download Python coverage (best-effort)
-        uses: dawidd6/action-download-artifact@v8
+        uses: dawidd6/action-download-artifact@20319c5641d495c8a52e688b7dc5fada6c3a9fbc # v8
         with:
           workflow: ci-python.yml
           name: python-coverage
@@ -27,7 +27,7 @@ jobs:
           if_no_artifact_found: ignore
 
       - name: Download frontend coverage (best-effort)
-        uses: dawidd6/action-download-artifact@v8
+        uses: dawidd6/action-download-artifact@20319c5641d495c8a52e688b7dc5fada6c3a9fbc # v8
         with:
           workflow: ci-frontend.yml
           name: frontend-coverage
@@ -37,6 +37,6 @@ jobs:
           if_no_artifact_found: ignore
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@2f77a1ec69fb1d595b06f35ab27e97605bdef703 # v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
