@@ -7,7 +7,7 @@ license = "AGPL-3.0-only"
 dependencies = [
     "gnovi-core",
     "gnovi-db",
-    "fastapi>=0.115",
+    "fastapi>=0.135.3",
     "uvicorn[standard]>=0.34",
 ]
 
