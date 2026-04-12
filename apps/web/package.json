@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint src/",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run --passWithNoTests --coverage --coverage.provider=v8 --coverage.reporter=lcov --coverage.reportsDirectory=coverage"
   },
   "dependencies": {
     "@gnovi/ui": "workspace:*",
@@ -23,6 +23,7 @@
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^4",
     "autoprefixer": "^10",
     "eslint": "^10",
     "postcss": "^8",

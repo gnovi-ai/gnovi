@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2025 Gnovi <https://gnovi.ai>
+# SPDX-License-Identifier: AGPL-3.0-only
+
+name: CI - SonarCloud
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: Download Python coverage (best-effort)
+        uses: dawidd6/action-download-artifact@20319c5641d495c8a52e688b7dc5fada6c3a9fbc # v8
+        with:
+          workflow: ci-python.yml
+          name: python-coverage
+          commit: ${{ github.event.pull_request.head.sha || github.sha }}
+          workflow_conclusion: success
+          if_no_artifact_found: ignore
+
+      - name: Download frontend coverage (best-effort)
+        uses: dawidd6/action-download-artifact@20319c5641d495c8a52e688b7dc5fada6c3a9fbc # v8
+        with:
+          workflow: ci-frontend.yml
+          name: frontend-coverage
+          path: apps/web/coverage
+          commit: ${{ github.event.pull_request.head.sha || github.sha }}
+          workflow_conclusion: success
+          if_no_artifact_found: ignore
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@2f77a1ec69fb1d595b06f35ab27e97605bdef703 # v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

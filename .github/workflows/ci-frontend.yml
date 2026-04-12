@@ -58,6 +58,15 @@ jobs:
         if: steps.changes.outputs.frontend == 'true'
         run: pnpm turbo test
 
+      - name: Upload coverage report
+        if: steps.changes.outputs.frontend == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage
+          path: apps/web/coverage/lcov.info
+          retention-days: 1
+          if-no-files-found: ignore
+
       - name: Build
         if: steps.changes.outputs.frontend == 'true'
         run: pnpm turbo build
