@@ -2,7 +2,7 @@
 # Copyright (c) 2026 Gnovi Contributors
 
 FROM node:25-slim AS base
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN npm install -g pnpm@10.33.0 --ignore-scripts
 WORKDIR /app
 
 # Install dependencies
