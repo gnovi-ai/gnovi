@@ -42,7 +42,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 CMD ["uv", "run", "uvicorn", "gnovi.api.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
 
 # Prod stage — minimal runtime, non-root user
-FROM python:3.13-slim-bookworm AS prod
+FROM python:3.14-slim-bookworm AS prod
 
 RUN groupadd --system app && useradd --system --gid app app
 
