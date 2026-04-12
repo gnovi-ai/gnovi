@@ -13,7 +13,14 @@
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Please report security vulnerabilities by emailing **security@gnovi.ai**.
+You can report vulnerabilities through either channel:
+
+1. **GitHub Private Vulnerability Reporting** (preferred): Go to the
+   [Security tab](https://github.com/gnovi-ai/gnovi/security/advisories/new)
+   and click "Report a vulnerability." This creates a private advisory where we
+   can collaborate on a fix before public disclosure.
+
+2. **Email:** Send details to **security@gnovi.ai**.
 
 Include:
 
@@ -43,3 +50,20 @@ Issues that are NOT security vulnerabilities:
 - Bugs that don't have security implications
 - Feature requests
 - Performance issues
+
+## Safe Harbor
+
+We support safe harbor for security research conducted in good faith. If you
+discover and report a vulnerability in accordance with this policy, we will:
+
+- Not pursue legal action against you
+- Work with you to understand and resolve the issue promptly
+- Credit you in the advisory (unless you prefer to remain anonymous)
+
+We ask that you:
+
+- Make a good faith effort to avoid privacy violations, data destruction, and
+  service disruption
+- Only interact with accounts you own or with explicit permission
+- Not publicly disclose the vulnerability until we've had a reasonable time to
+  address it
