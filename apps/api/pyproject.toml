@@ -8,7 +8,7 @@ dependencies = [
     "gnovi-core",
     "gnovi-db",
     "fastapi>=0.135.3",
-    "uvicorn[standard]>=0.34",
+    "uvicorn[standard]>=0.44.0",
 ]
 
 [tool.uv.sources]
