@@ -30,7 +30,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Download Python coverage (best-effort)
-        uses: dawidd6/action-download-artifact@20319c5641d495c8a52e688b7dc5fada6c3a9fbc # v8
+        uses: dawidd6/action-download-artifact@8305c0f1062bb0d184d09ef4493ecb9288447732 # v20
         with:
           workflow: ci-python.yml
           name: python-coverage
@@ -39,7 +39,7 @@ jobs:
           if_no_artifact_found: ignore
 
       - name: Download frontend coverage (best-effort)
-        uses: dawidd6/action-download-artifact@20319c5641d495c8a52e688b7dc5fada6c3a9fbc # v8
+        uses: dawidd6/action-download-artifact@8305c0f1062bb0d184d09ef4493ecb9288447732 # v20
         with:
           workflow: ci-frontend.yml
           name: frontend-coverage
@@ -49,6 +49,6 @@ jobs:
           if_no_artifact_found: ignore
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@2f77a1ec69fb1d595b06f35ab27e97605bdef703 # v5
+        uses: SonarSource/sonarqube-scan-action@299e4b793aaa83bf2aba7c9c14bedbb485688ec4 # v7.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
