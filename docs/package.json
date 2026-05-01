@@ -9,13 +9,13 @@
     "serve": "docusaurus serve"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.10.0",
-    "@docusaurus/preset-classic": "^3.10.0",
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/preset-classic": "^3.10.1",
     "react": "^19",
     "react-dom": "^19"
   },
   "devDependencies": {
-    "@docusaurus/types": "^3.10.0",
+    "@docusaurus/types": "^3.10.1",
     "@gnovi/tsconfig": "workspace:*",
     "typescript": "^6"
   }
