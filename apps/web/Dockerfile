@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 # Copyright (c) 2026 Gnovi Contributors
 
-FROM node:25-slim AS base
+FROM node:26-slim AS base
 RUN npm install -g pnpm@10.33.0 --ignore-scripts
 WORKDIR /app
 
@@ -26,7 +26,7 @@ COPY apps/web/ apps/web/
 RUN pnpm --filter @gnovi/web build
 
 # Prod stage — standalone Next.js output
-FROM node:25-slim AS prod
+FROM node:26-slim AS prod
 RUN addgroup --system app && adduser --system --ingroup app app
 
 COPY --from=builder --chown=app:app /app/apps/web/.next/standalone ./
